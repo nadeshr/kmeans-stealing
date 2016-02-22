@@ -21,8 +21,8 @@ The parallelism degree in the current setup is 4 work-items. You can modify the 
 
 Contact
 ------------------
-Please contact us at n_dot_ramanathan14_at_imperial_at_ic_ac_uk for any problems/bugs.  
+Please contact us at n_dot_ramanathan14_at_imperial_at_ic_ac_uk for any problems/bugs. 
 
 
-(c) Nadesh Ramanathan, Imperial College London. The source code is distributed under a 3-clause BSD license (see LICENSE.txt). Please cite \textit{N. Ramanathan, F. Winterstein and G. Constantinides, "A Case for Work-stealing on FPGAs with OpenCL Atomics"} in Proceedings of the 2016 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays. 
+(c) Nadesh Ramanathan, Imperial College London. The source code is distributed under a 3-clause BSD license (see LICENSE.txt). Please cite N. Ramanathan, F. Winterstein and G. Constantinides, "A Case for Work-stealing on FPGAs with OpenCL Atomics" in Proceedings of the 2016 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays. 
 
