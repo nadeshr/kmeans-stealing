@@ -7,13 +7,15 @@ Code Overview
 -------------
 Each OpenCL design (baseline /stealing) contains host and kernel code in "host/src" and "device" respectively. The host code takes input from the "golden_ref", where we have a number of datasets. For our paper, we only used one dataset which is 'n=1024*1024', 'k=128' and 'stv_dev=0.1' (evident in "main.cpp"). First, the host code generates either a balanced or unbalanced tree that is instantiated as OpenCL buffers and passed as OpenCL kernel argument. Then, the kernel runs 16 clustering iterations before writing its results into some OpenCL buffers that area subsequently read by the host code. Finally, the host code prints the final center results, execution time and the load distribution among OpenCL work-items. 
 
-Interestingly, some form of load balancing is already obvious in simulation, if you just plan to have a high-level idea of this work and do not want to synthesize the entire kernel to understanding our work. Simply run ./build_sw.sh and compare the resulting outputs for the baseline and stealing designs. It must be warned that neither the simulation outputs nor the execution time potrait the actual load balancing effects, since we have induced "false/unwanted" barriers to trick the tool into doing some stealing during simulation (look for "SYN" preprocessing definition to have an idea about where the induced simulation barriers are). However, the induced barrier does give us an idea about what work-stealing can do to address workload imbalance. The actual load balancing results can be seen in our paper or after post-synthesis. Run ./build_hw.sh and the entire design will be compiled, synthesised and executed for you. 
+Interestingly, some form of load balancing is already obvious in simulation, if you just plan to have a high-level idea of this work and do not want to synthesize the entire kernel to understanding our work. Simply run ./build_sw.sh and compare the resulting outputs for the baseline and stealing designs. It must be warned that neither the simulation outputs nor the execution time potrait the actual load balancing effects, since we have induced "false/unwanted" barriers to trick the tool into doing some stealing during simulation (look for "SYN" preprocessing definition to have an idea about where the induced simulation barriers are). However, the induced barrier does give us an idea about what work-stealing can do to address workload imbalance. The actual load balancing results can be seen in our paper or after synthesis. Run ./build_hw.sh and the entire design will be compiled, synthesised and executed for you. 
 
 Directory structure
 -------------------
-1) baseline: Contains the bline aseline implementation as described in the paper
+1) baseline: Contains the baseline implementation as described in the paper
+
 2) work_stealing: Contains the work-stealing implementation as descirbed in the paper. This design uses atomics to load balancing via work-stealing. 
-4) common: Contains Altera-specific OpenCL header files to allow compilation of OpenCL host and kernel code 
+
+3) common: Contains Altera-specific OpenCL header files to allow compilation of OpenCL host and kernel code 
 
 Experimentation Suggestions
 -----------------------------
